@@ -22,4 +22,14 @@ int main() {
             return 1;
         }
     }
+
+    cout << "Loaded " << attendees.size()                            // .size() for number of elements
+         << " values. Empty? " << (attendees.empty() ? "Yes" : "No") // .empty() to check if empty (True or false)
+         << "\n";
+
+    cout << "First=" << attendees.front()                            // .front() for first element
+         << "  Fifteenth=" << attendees.at(14)                       // .at() for specific element
+         << "  Last=" << attendees.back()                            // .back() for last element
+         << "\n";
+
 }
