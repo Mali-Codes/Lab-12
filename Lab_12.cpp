@@ -2,3 +2,24 @@
 #include <fstream>
 #include <iostream>
 using namespace std;
+
+int main() {
+    
+    constexpr size_t N = 30;           // Fixed size for the array        
+
+    array<int, N> attendees;           // Our fixed-size container
+
+                                    
+    ifstream fin("attendance.txt");     // Open the input file  
+    if (!fin) {                         // Always check file I/O (housekeeping)
+        cerr << "Could not open attendance.txt\n";
+        return 1;
+    }
+
+    for (size_t i = 0; i < attendees.size(); ++i) {             // Using size_t since we are indexing things
+        if (!(fin >> attendees.at(i))) {                        // stop if the file runs out early
+            cerr << "Need " << attendees.size() << " integers in the file.\n"; //displays the error message and size needed
+            return 1;
+        }
+    }
+}
